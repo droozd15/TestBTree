@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace TestBTree
 {
-    class BTree
+    public class BTree
     {
+        public BTree()
+        {
+
+        }
     }
 }

@@ -11,14 +11,10 @@ namespace TestBTree
     class TestClass
     {
         [Test]
-        public void TestSuccess()
+        public void CanCreateBTree()
         {
-            Assert.AreEqual(1, 1);
-        }
-        [Test]
-        public void TestFail()
-        {
-            Assert.AreEqual(1, 4);
+            BTree tree = new BTree();
+            Assert.True(tree != null);
         }
     }
 }
