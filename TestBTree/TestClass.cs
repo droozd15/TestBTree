@@ -17,6 +17,10 @@ namespace TestBTree
             Assert.True(tree != null);
             Assert.AreEqual(3, tree.Degree);
             Assert.AreEqual(1, tree.Height);
+            Assert.AreEqual(0, tree.Root.Entries.Count);
+            Assert.AreEqual(0, tree.Root.Children.Count);
+            Assert.NotNull(tree.Root.Entries);
+            Assert.NotNull(tree.Root.Children);
             Assert.True(tree.Root != null);
         }
     }
