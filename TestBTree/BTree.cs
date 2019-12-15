@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace TestBTree
 {
-    public class BTree
+    public class BTree<TK, TP> where TK : IComparable<TK>
     {
-        public BTree()
-        {
+        public int Degree { get; private set; }
+        public int Heigth { get; private set; }
 
+        public BTree(int degree)
+        {
+            this.Degree = degree;
+            this.Heigth = 1;
         }
     }
 }
