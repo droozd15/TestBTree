@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestBTree
 {
-    public class BTree<T>
+    public class BTree<T> where T : IComparable<T>
     {
         public int Degree { get; private set; }
         public int Height { get; private set; }
@@ -24,5 +24,18 @@ namespace TestBTree
         {
             Root.Entries.Add(new Entry<T>() { Value = value });
         }
+
+        public Entry<T> Search(T value)
+        {
+            int i = Root.Entries.TakeWhile(entry => value.CompareTo(entry.Value) > 0).Count();
+
+            if (i < Root.Entries.Count && Root.Entries[i].Value.CompareTo(value) == 0)
+            {
+                return Root.Entries[i];
+            }
+
+            return null;
+        }
     }
+
 }
