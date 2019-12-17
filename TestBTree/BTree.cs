@@ -6,17 +6,23 @@ using System.Threading.Tasks;
 
 namespace TestBTree
 {
-    public class BTree<TK, TP> where TK : IComparable<TK>
+    public class BTree<T>
     {
         public int Degree { get; private set; }
         public int Height { get; private set; }
-        public Node<TK, TP> Root { get; private set; }
+
+        public Node<T> Root { get; private set; }
 
         public BTree(int degree)
         {
             this.Degree = degree;
             this.Height = 1;
-            this.Root = new Node<TK, TP>(degree);
+            this.Root = new Node<T>(degree);
+        }
+
+        public void Insert(T value)
+        {
+            Root.Entries.Add(new Entry<T>() { Value = value });
         }
     }
 }
