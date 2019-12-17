@@ -36,6 +36,15 @@ namespace TestBTree
 
             return null;
         }
+        public void Delete(T value)
+        {
+            int i = Root.Entries.TakeWhile(entry => value.CompareTo(entry.Value) > 0).Count();
+
+            if (i < Root.Entries.Count && Root.Entries[i].Value.CompareTo(value) == 0)
+            {
+                Root.Entries.RemoveAt(i);
+            }
+        }
     }
 
 }
